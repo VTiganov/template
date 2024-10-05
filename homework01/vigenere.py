@@ -12,18 +12,18 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     ciphertext = ""
     # PUT YOUR CODE HERE
     keyword_length = len(keyword)
-    
+
     for i in range(len(plaintext)):
         p = plaintext[i]
         k = keyword[i % keyword_length].upper()
-        
+
         if p.isalpha():
-            base = ord('A') if p.isupper() else ord('a')
-            shift = ord(k) - ord('A')
+            base = ord("A") if p.isupper() else ord("a")
+            shift = ord(k) - ord("A")
             ciphertext += chr((ord(p) - base + shift) % 26 + base)
         else:
             ciphertext += p
-            
+
     return ciphertext
 
 
@@ -47,10 +47,10 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
         k = keyword[i % keyword_length].upper()
 
         if c.isalpha():
-            base = ord('A') if c.isupper() else ord('a')
-            shift = ord(k) - ord('A')
+            base = ord("A") if c.isupper() else ord("a")
+            shift = ord(k) - ord("A")
             plaintext += chr((ord(c) - base - shift) % 26 + base)
         else:
             plaintext += c
-            
+
     return plaintext
